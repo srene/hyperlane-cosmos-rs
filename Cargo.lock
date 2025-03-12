@@ -664,7 +664,7 @@ dependencies = [
 
 [[package]]
 name = "hyperlane-cosmos-rs"
-version = "0.26.1"
+version = "0.1.0"
 dependencies = [
  "cosmrs",
  "prost",
