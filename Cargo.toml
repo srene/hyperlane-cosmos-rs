@@ -9,6 +9,7 @@ categories = ["cryptography", "cryptography::cryptocurrencies", "database"]
 keywords = ["hyperlane", "blockchain", "cosmos", "tendermint", "proto"]
 edition = "2021"
 rust-version = "1.72"
+license-file = "LICENSE"
 
 [dependencies]
 prost = { version = "0.13", default-features = false }
