@@ -73,13 +73,13 @@ pub struct Mailbox {
     #[prost(string, tag="5")]
     pub default_ism: ::prost::alloc::string::String,
     /// default_hook
-    #[prost(string, tag="8")]
+    #[prost(string, tag="6")]
     pub default_hook: ::prost::alloc::string::String,
     /// required_hook
-    #[prost(string, tag="9")]
+    #[prost(string, tag="7")]
     pub required_hook: ::prost::alloc::string::String,
     /// domain
-    #[prost(uint32, tag="10")]
+    #[prost(uint32, tag="8")]
     pub local_domain: u32,
 }
 impl ::prost::Name for Mailbox {

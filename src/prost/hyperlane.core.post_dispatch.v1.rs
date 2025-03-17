@@ -28,9 +28,9 @@ pub struct InsertedIntoTree {
     /// index ...
     #[prost(uint32, tag="2")]
     pub index: u32,
-    /// mailbox_id ...
+    /// merkle_tree_hook_id ...
     #[prost(string, tag="3")]
-    pub mailbox_id: ::prost::alloc::string::String,
+    pub merkle_tree_hook_id: ::prost::alloc::string::String,
 }
 impl ::prost::Name for InsertedIntoTree {
 const NAME: &'static str = "InsertedIntoTree";
