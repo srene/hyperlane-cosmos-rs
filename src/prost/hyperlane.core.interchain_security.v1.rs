@@ -7,7 +7,7 @@ pub struct GenesisState {
     #[prost(message, repeated, tag="1")]
     pub isms: ::prost::alloc::vec::Vec<::tendermint_proto::google::protobuf::Any>,
     #[prost(message, repeated, tag="2")]
-    pub validator_storage_locations: ::prost::alloc::vec::Vec<ValidatorStorageLocationGenesisWrapper>,
+    pub validator_storage_locations: ::prost::alloc::vec::Vec<GenesisValidatorStorageLocationWrapper>,
 }
 impl ::prost::Name for GenesisState {
 const NAME: &'static str = "GenesisState";
@@ -15,11 +15,11 @@ const PACKAGE: &'static str = "hyperlane.core.interchain_security.v1";
 fn full_name() -> ::prost::alloc::string::String {
                 ::prost::alloc::format!("hyperlane.core.interchain_security.v1.{}", Self::NAME)
             }}
-/// ValidatorStorageLocationGenesisWrapper stores the information for
+/// GenesisValidatorStorageLocationWrapper stores the information for
 /// validator, mailbox and storage-location which validators have announced
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ValidatorStorageLocationGenesisWrapper {
+pub struct GenesisValidatorStorageLocationWrapper {
     #[prost(uint64, tag="1")]
     pub mailbox_id: u64,
     #[prost(string, tag="2")]
@@ -29,8 +29,8 @@ pub struct ValidatorStorageLocationGenesisWrapper {
     #[prost(string, tag="4")]
     pub storage_location: ::prost::alloc::string::String,
 }
-impl ::prost::Name for ValidatorStorageLocationGenesisWrapper {
-const NAME: &'static str = "ValidatorStorageLocationGenesisWrapper";
+impl ::prost::Name for GenesisValidatorStorageLocationWrapper {
+const NAME: &'static str = "GenesisValidatorStorageLocationWrapper";
 const PACKAGE: &'static str = "hyperlane.core.interchain_security.v1";
 fn full_name() -> ::prost::alloc::string::String {
                 ::prost::alloc::format!("hyperlane.core.interchain_security.v1.{}", Self::NAME)
@@ -119,7 +119,7 @@ const PACKAGE: &'static str = "hyperlane.core.interchain_security.v1";
 fn full_name() -> ::prost::alloc::string::String {
                 ::prost::alloc::format!("hyperlane.core.interchain_security.v1.{}", Self::NAME)
             }}
-/// QueryAnnouncedStorageLocationsRequest ...
+/// QueryLatestAnnouncedStorageLocationRequest ...
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct QueryLatestAnnouncedStorageLocationRequest {
@@ -134,7 +134,7 @@ const PACKAGE: &'static str = "hyperlane.core.interchain_security.v1";
 fn full_name() -> ::prost::alloc::string::String {
                 ::prost::alloc::format!("hyperlane.core.interchain_security.v1.{}", Self::NAME)
             }}
-/// QueryAnnouncedStorageLocationsResponse ...
+/// QueryLatestAnnouncedStorageLocationResponse ...
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct QueryLatestAnnouncedStorageLocationResponse {

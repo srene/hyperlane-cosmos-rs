@@ -161,9 +161,9 @@ pub mod query_client {
         }
         pub async fn recipient_ism(
             &mut self,
-            request: impl tonic::IntoRequest<super::RecipientIsmRequest>,
+            request: impl tonic::IntoRequest<super::QueryRecipientIsmRequest>,
         ) -> std::result::Result<
-            tonic::Response<super::RecipientIsmResponse>,
+            tonic::Response<super::QueryRecipientIsmResponse>,
             tonic::Status,
         > {
             self.inner
@@ -241,9 +241,9 @@ pub mod query_server {
         >;
         async fn recipient_ism(
             &self,
-            request: tonic::Request<super::RecipientIsmRequest>,
+            request: tonic::Request<super::QueryRecipientIsmRequest>,
         ) -> std::result::Result<
-            tonic::Response<super::RecipientIsmResponse>,
+            tonic::Response<super::QueryRecipientIsmResponse>,
             tonic::Status,
         >;
         async fn verify_dry_run(
@@ -470,16 +470,16 @@ pub mod query_server {
                     struct RecipientIsmSvc<T: Query>(pub Arc<T>);
                     impl<
                         T: Query,
-                    > tonic::server::UnaryService<super::RecipientIsmRequest>
+                    > tonic::server::UnaryService<super::QueryRecipientIsmRequest>
                     for RecipientIsmSvc<T> {
-                        type Response = super::RecipientIsmResponse;
+                        type Response = super::QueryRecipientIsmResponse;
                         type Future = BoxFuture<
                             tonic::Response<Self::Response>,
                             tonic::Status,
                         >;
                         fn call(
                             &mut self,
-                            request: tonic::Request<super::RecipientIsmRequest>,
+                            request: tonic::Request<super::QueryRecipientIsmRequest>,
                         ) -> Self::Future {
                             let inner = Arc::clone(&self.0);
                             let fut = async move {

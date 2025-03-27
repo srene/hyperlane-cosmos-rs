@@ -101,7 +101,7 @@ pub struct GenesisState {
     #[prost(message, repeated, tag="3")]
     pub mailboxes: ::prost::alloc::vec::Vec<Mailbox>,
     #[prost(message, repeated, tag="4")]
-    pub messages: ::prost::alloc::vec::Vec<MailboxMessage>,
+    pub messages: ::prost::alloc::vec::Vec<GenesisMailboxMessageWrapper>,
     #[prost(uint64, tag="5")]
     pub ism_sequence: u64,
     #[prost(uint64, tag="6")]
@@ -115,17 +115,17 @@ const PACKAGE: &'static str = "hyperlane.core.v1";
 fn full_name() -> ::prost::alloc::string::String {
                 ::prost::alloc::format!("hyperlane.core.v1.{}", Self::NAME)
             }}
-/// Mailbox message for genesis state
+/// GenesisMailboxMessageWrapper ...
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct MailboxMessage {
+pub struct GenesisMailboxMessageWrapper {
     #[prost(uint64, tag="1")]
     pub mailbox_id: u64,
-    #[prost(bytes="vec", tag="2")]
-    pub message_id: ::prost::alloc::vec::Vec<u8>,
+    #[prost(string, tag="2")]
+    pub message_id: ::prost::alloc::string::String,
 }
-impl ::prost::Name for MailboxMessage {
-const NAME: &'static str = "MailboxMessage";
+impl ::prost::Name for GenesisMailboxMessageWrapper {
+const NAME: &'static str = "GenesisMailboxMessageWrapper";
 const PACKAGE: &'static str = "hyperlane.core.v1";
 fn full_name() -> ::prost::alloc::string::String {
                 ::prost::alloc::format!("hyperlane.core.v1.{}", Self::NAME)
@@ -214,28 +214,28 @@ const PACKAGE: &'static str = "hyperlane.core.v1";
 fn full_name() -> ::prost::alloc::string::String {
                 ::prost::alloc::format!("hyperlane.core.v1.{}", Self::NAME)
             }}
-/// RecipientIsmRequest ...
+/// QueryRecipientIsmRequest ...
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RecipientIsmRequest {
+pub struct QueryRecipientIsmRequest {
     #[prost(string, tag="1")]
     pub recipient: ::prost::alloc::string::String,
 }
-impl ::prost::Name for RecipientIsmRequest {
-const NAME: &'static str = "RecipientIsmRequest";
+impl ::prost::Name for QueryRecipientIsmRequest {
+const NAME: &'static str = "QueryRecipientIsmRequest";
 const PACKAGE: &'static str = "hyperlane.core.v1";
 fn full_name() -> ::prost::alloc::string::String {
                 ::prost::alloc::format!("hyperlane.core.v1.{}", Self::NAME)
             }}
-/// RecipientIsmResponse ...
+/// QueryRecipientIsmResponse ...
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RecipientIsmResponse {
+pub struct QueryRecipientIsmResponse {
     #[prost(string, tag="1")]
     pub ism_id: ::prost::alloc::string::String,
 }
-impl ::prost::Name for RecipientIsmResponse {
-const NAME: &'static str = "RecipientIsmResponse";
+impl ::prost::Name for QueryRecipientIsmResponse {
+const NAME: &'static str = "QueryRecipientIsmResponse";
 const PACKAGE: &'static str = "hyperlane.core.v1";
 fn full_name() -> ::prost::alloc::string::String {
                 ::prost::alloc::format!("hyperlane.core.v1.{}", Self::NAME)

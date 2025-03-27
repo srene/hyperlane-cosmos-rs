@@ -1,6 +1,6 @@
 [package]
 name = "hyperlane-cosmos-rs"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Jamin Yeates <jamin@hyperlane.xyz>"]
 repository = "https://github.com/bcp-innovations/hyperlane-cosmos-rs"
 description = "Protobuf stuct defintions for interacting with the Hyperlane Cosmos SDK"

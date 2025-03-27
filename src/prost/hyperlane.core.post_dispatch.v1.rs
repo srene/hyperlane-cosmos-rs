@@ -204,7 +204,7 @@ pub struct GenesisState {
     #[prost(message, repeated, tag="1")]
     pub igps: ::prost::alloc::vec::Vec<InterchainGasPaymaster>,
     #[prost(message, repeated, tag="2")]
-    pub igp_gas_configs: ::prost::alloc::vec::Vec<DestinationGasConfigGenesisWrapper>,
+    pub igp_gas_configs: ::prost::alloc::vec::Vec<GenesisDestinationGasConfigWrapper>,
     #[prost(message, repeated, tag="3")]
     pub merkle_tree_hooks: ::prost::alloc::vec::Vec<MerkleTreeHook>,
     #[prost(message, repeated, tag="4")]
@@ -216,10 +216,10 @@ const PACKAGE: &'static str = "hyperlane.core.post_dispatch.v1";
 fn full_name() -> ::prost::alloc::string::String {
                 ::prost::alloc::format!("hyperlane.core.post_dispatch.v1.{}", Self::NAME)
             }}
-/// DestinationGasConfigGenesisWrapper ...
+/// GenesisDestinationGasConfigWrapper ...
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DestinationGasConfigGenesisWrapper {
+pub struct GenesisDestinationGasConfigWrapper {
     /// remote_domain ...
     #[prost(uint32, tag="1")]
     pub remote_domain: u32,
@@ -233,8 +233,8 @@ pub struct DestinationGasConfigGenesisWrapper {
     #[prost(uint64, tag="4")]
     pub igp_id: u64,
 }
-impl ::prost::Name for DestinationGasConfigGenesisWrapper {
-const NAME: &'static str = "DestinationGasConfigGenesisWrapper";
+impl ::prost::Name for GenesisDestinationGasConfigWrapper {
+const NAME: &'static str = "GenesisDestinationGasConfigWrapper";
 const PACKAGE: &'static str = "hyperlane.core.post_dispatch.v1";
 fn full_name() -> ::prost::alloc::string::String {
                 ::prost::alloc::format!("hyperlane.core.post_dispatch.v1.{}", Self::NAME)
@@ -357,15 +357,15 @@ const PACKAGE: &'static str = "hyperlane.core.post_dispatch.v1";
 fn full_name() -> ::prost::alloc::string::String {
                 ::prost::alloc::format!("hyperlane.core.post_dispatch.v1.{}", Self::NAME)
             }}
-/// QueryCountRequest ...
+/// QueryMerkleTreeHooksRequest ...
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct QueryMerkleTreeHooks {
+pub struct QueryMerkleTreeHooksRequest {
     #[prost(message, optional, tag="1")]
     pub pagination: ::core::option::Option<super::super::super::super::cosmos::base::query::v1beta1::PageRequest>,
 }
-impl ::prost::Name for QueryMerkleTreeHooks {
-const NAME: &'static str = "QueryMerkleTreeHooks";
+impl ::prost::Name for QueryMerkleTreeHooksRequest {
+const NAME: &'static str = "QueryMerkleTreeHooksRequest";
 const PACKAGE: &'static str = "hyperlane.core.post_dispatch.v1";
 fn full_name() -> ::prost::alloc::string::String {
                 ::prost::alloc::format!("hyperlane.core.post_dispatch.v1.{}", Self::NAME)
@@ -385,15 +385,15 @@ const PACKAGE: &'static str = "hyperlane.core.post_dispatch.v1";
 fn full_name() -> ::prost::alloc::string::String {
                 ::prost::alloc::format!("hyperlane.core.post_dispatch.v1.{}", Self::NAME)
             }}
-/// QueryMerkleTreeHook ...
+/// QueryMerkleTreeHookRequest ...
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct QueryMerkleTreeHook {
+pub struct QueryMerkleTreeHookRequest {
     #[prost(string, tag="1")]
     pub id: ::prost::alloc::string::String,
 }
-impl ::prost::Name for QueryMerkleTreeHook {
-const NAME: &'static str = "QueryMerkleTreeHook";
+impl ::prost::Name for QueryMerkleTreeHookRequest {
+const NAME: &'static str = "QueryMerkleTreeHookRequest";
 const PACKAGE: &'static str = "hyperlane.core.post_dispatch.v1";
 fn full_name() -> ::prost::alloc::string::String {
                 ::prost::alloc::format!("hyperlane.core.post_dispatch.v1.{}", Self::NAME)

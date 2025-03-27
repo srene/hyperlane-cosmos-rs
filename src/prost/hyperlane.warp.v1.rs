@@ -25,21 +25,6 @@ const PACKAGE: &'static str = "hyperlane.warp.v1";
 fn full_name() -> ::prost::alloc::string::String {
                 ::prost::alloc::format!("hyperlane.warp.v1.{}", Self::NAME)
             }}
-/// GenesisState is the state that must be provided at genesis.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GenesisState {
-    #[prost(message, optional, tag="1")]
-    pub params: ::core::option::Option<Params>,
-    #[prost(message, repeated, tag="2")]
-    pub tokens: ::prost::alloc::vec::Vec<HypToken>,
-}
-impl ::prost::Name for GenesisState {
-const NAME: &'static str = "GenesisState";
-const PACKAGE: &'static str = "hyperlane.warp.v1";
-fn full_name() -> ::prost::alloc::string::String {
-                ::prost::alloc::format!("hyperlane.warp.v1.{}", Self::NAME)
-            }}
 /// HypToken ...
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -115,6 +100,38 @@ impl HypTokenType {
         }
     }
 }
+/// GenesisState is the state that must be provided at genesis.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GenesisState {
+    #[prost(message, optional, tag="1")]
+    pub params: ::core::option::Option<Params>,
+    #[prost(message, repeated, tag="2")]
+    pub tokens: ::prost::alloc::vec::Vec<HypToken>,
+    #[prost(message, repeated, tag="3")]
+    pub remote_routers: ::prost::alloc::vec::Vec<GenesisRemoteRouterWrapper>,
+}
+impl ::prost::Name for GenesisState {
+const NAME: &'static str = "GenesisState";
+const PACKAGE: &'static str = "hyperlane.warp.v1";
+fn full_name() -> ::prost::alloc::string::String {
+                ::prost::alloc::format!("hyperlane.warp.v1.{}", Self::NAME)
+            }}
+/// GenesisRemoteRouterWrapper ...
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GenesisRemoteRouterWrapper {
+    #[prost(uint64, tag="1")]
+    pub token_id: u64,
+    #[prost(message, optional, tag="2")]
+    pub remote_router: ::core::option::Option<RemoteRouter>,
+}
+impl ::prost::Name for GenesisRemoteRouterWrapper {
+const NAME: &'static str = "GenesisRemoteRouterWrapper";
+const PACKAGE: &'static str = "hyperlane.warp.v1";
+fn full_name() -> ::prost::alloc::string::String {
+                ::prost::alloc::format!("hyperlane.warp.v1.{}", Self::NAME)
+            }}
 /// QueryTokensRequest ...
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -171,7 +188,7 @@ const PACKAGE: &'static str = "hyperlane.warp.v1";
 fn full_name() -> ::prost::alloc::string::String {
                 ::prost::alloc::format!("hyperlane.warp.v1.{}", Self::NAME)
             }}
-/// / HypToken
+/// WrappedHypToken
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct WrappedHypToken {

@@ -198,7 +198,7 @@ pub mod query_client {
         }
         pub async fn merkle_tree_hooks(
             &mut self,
-            request: impl tonic::IntoRequest<super::QueryMerkleTreeHooks>,
+            request: impl tonic::IntoRequest<super::QueryMerkleTreeHooksRequest>,
         ) -> std::result::Result<
             tonic::Response<super::QueryMerkleTreeHooksResponse>,
             tonic::Status,
@@ -228,7 +228,7 @@ pub mod query_client {
         }
         pub async fn merkle_tree_hook(
             &mut self,
-            request: impl tonic::IntoRequest<super::QueryMerkleTreeHook>,
+            request: impl tonic::IntoRequest<super::QueryMerkleTreeHookRequest>,
         ) -> std::result::Result<
             tonic::Response<super::QueryMerkleTreeHookResponse>,
             tonic::Status,
@@ -349,14 +349,14 @@ pub mod query_server {
         >;
         async fn merkle_tree_hooks(
             &self,
-            request: tonic::Request<super::QueryMerkleTreeHooks>,
+            request: tonic::Request<super::QueryMerkleTreeHooksRequest>,
         ) -> std::result::Result<
             tonic::Response<super::QueryMerkleTreeHooksResponse>,
             tonic::Status,
         >;
         async fn merkle_tree_hook(
             &self,
-            request: tonic::Request<super::QueryMerkleTreeHook>,
+            request: tonic::Request<super::QueryMerkleTreeHookRequest>,
         ) -> std::result::Result<
             tonic::Response<super::QueryMerkleTreeHookResponse>,
             tonic::Status,
@@ -639,7 +639,7 @@ pub mod query_server {
                     struct MerkleTreeHooksSvc<T: Query>(pub Arc<T>);
                     impl<
                         T: Query,
-                    > tonic::server::UnaryService<super::QueryMerkleTreeHooks>
+                    > tonic::server::UnaryService<super::QueryMerkleTreeHooksRequest>
                     for MerkleTreeHooksSvc<T> {
                         type Response = super::QueryMerkleTreeHooksResponse;
                         type Future = BoxFuture<
@@ -648,7 +648,7 @@ pub mod query_server {
                         >;
                         fn call(
                             &mut self,
-                            request: tonic::Request<super::QueryMerkleTreeHooks>,
+                            request: tonic::Request<super::QueryMerkleTreeHooksRequest>,
                         ) -> Self::Future {
                             let inner = Arc::clone(&self.0);
                             let fut = async move {
@@ -685,7 +685,7 @@ pub mod query_server {
                     struct MerkleTreeHookSvc<T: Query>(pub Arc<T>);
                     impl<
                         T: Query,
-                    > tonic::server::UnaryService<super::QueryMerkleTreeHook>
+                    > tonic::server::UnaryService<super::QueryMerkleTreeHookRequest>
                     for MerkleTreeHookSvc<T> {
                         type Response = super::QueryMerkleTreeHookResponse;
                         type Future = BoxFuture<
@@ -694,7 +694,7 @@ pub mod query_server {
                         >;
                         fn call(
                             &mut self,
-                            request: tonic::Request<super::QueryMerkleTreeHook>,
+                            request: tonic::Request<super::QueryMerkleTreeHookRequest>,
                         ) -> Self::Future {
                             let inner = Arc::clone(&self.0);
                             let fut = async move {
