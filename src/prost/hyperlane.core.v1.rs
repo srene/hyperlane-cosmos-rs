@@ -250,6 +250,8 @@ pub struct QueryVerifyDryRunRequest {
     pub message: ::prost::alloc::string::String,
     #[prost(string, tag="3")]
     pub metadata: ::prost::alloc::string::String,
+    #[prost(string, tag="4")]
+    pub gas_limit: ::prost::alloc::string::String,
 }
 impl ::prost::Name for QueryVerifyDryRunRequest {
 const NAME: &'static str = "QueryVerifyDryRunRequest";

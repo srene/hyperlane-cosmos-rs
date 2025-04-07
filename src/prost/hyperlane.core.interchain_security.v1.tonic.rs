@@ -720,6 +720,126 @@ pub mod msg_client {
                 );
             self.inner.unary(req, path, codec).await
         }
+        pub async fn create_routing_ism(
+            &mut self,
+            request: impl tonic::IntoRequest<super::MsgCreateRoutingIsm>,
+        ) -> std::result::Result<
+            tonic::Response<super::MsgCreateRoutingIsmResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/hyperlane.core.interchain_security.v1.Msg/CreateRoutingIsm",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "hyperlane.core.interchain_security.v1.Msg",
+                        "CreateRoutingIsm",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        pub async fn set_routing_ism_domain(
+            &mut self,
+            request: impl tonic::IntoRequest<super::MsgSetRoutingIsmDomain>,
+        ) -> std::result::Result<
+            tonic::Response<super::MsgSetRoutingIsmDomainResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/hyperlane.core.interchain_security.v1.Msg/SetRoutingIsmDomain",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "hyperlane.core.interchain_security.v1.Msg",
+                        "SetRoutingIsmDomain",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        pub async fn remove_routing_ism_domain(
+            &mut self,
+            request: impl tonic::IntoRequest<super::MsgRemoveRoutingIsmDomain>,
+        ) -> std::result::Result<
+            tonic::Response<super::MsgRemoveRoutingIsmDomainResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/hyperlane.core.interchain_security.v1.Msg/RemoveRoutingIsmDomain",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "hyperlane.core.interchain_security.v1.Msg",
+                        "RemoveRoutingIsmDomain",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        pub async fn update_routing_ism_owner(
+            &mut self,
+            request: impl tonic::IntoRequest<super::MsgUpdateRoutingIsmOwner>,
+        ) -> std::result::Result<
+            tonic::Response<super::MsgUpdateRoutingIsmOwnerResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/hyperlane.core.interchain_security.v1.Msg/UpdateRoutingIsmOwner",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "hyperlane.core.interchain_security.v1.Msg",
+                        "UpdateRoutingIsmOwner",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
         pub async fn announce_validator(
             &mut self,
             request: impl tonic::IntoRequest<super::MsgAnnounceValidator>,
@@ -778,6 +898,34 @@ pub mod msg_server {
             request: tonic::Request<super::MsgCreateNoopIsm>,
         ) -> std::result::Result<
             tonic::Response<super::MsgCreateNoopIsmResponse>,
+            tonic::Status,
+        >;
+        async fn create_routing_ism(
+            &self,
+            request: tonic::Request<super::MsgCreateRoutingIsm>,
+        ) -> std::result::Result<
+            tonic::Response<super::MsgCreateRoutingIsmResponse>,
+            tonic::Status,
+        >;
+        async fn set_routing_ism_domain(
+            &self,
+            request: tonic::Request<super::MsgSetRoutingIsmDomain>,
+        ) -> std::result::Result<
+            tonic::Response<super::MsgSetRoutingIsmDomainResponse>,
+            tonic::Status,
+        >;
+        async fn remove_routing_ism_domain(
+            &self,
+            request: tonic::Request<super::MsgRemoveRoutingIsmDomain>,
+        ) -> std::result::Result<
+            tonic::Response<super::MsgRemoveRoutingIsmDomainResponse>,
+            tonic::Status,
+        >;
+        async fn update_routing_ism_owner(
+            &self,
+            request: tonic::Request<super::MsgUpdateRoutingIsmOwner>,
+        ) -> std::result::Result<
+            tonic::Response<super::MsgUpdateRoutingIsmOwnerResponse>,
             tonic::Status,
         >;
         async fn announce_validator(
@@ -990,6 +1138,188 @@ pub mod msg_server {
                     let fut = async move {
                         let inner = inner.0;
                         let method = CreateNoopIsmSvc(inner);
+                        let codec = tonic::codec::ProstCodec::default();
+                        let mut grpc = tonic::server::Grpc::new(codec)
+                            .apply_compression_config(
+                                accept_compression_encodings,
+                                send_compression_encodings,
+                            )
+                            .apply_max_message_size_config(
+                                max_decoding_message_size,
+                                max_encoding_message_size,
+                            );
+                        let res = grpc.unary(method, req).await;
+                        Ok(res)
+                    };
+                    Box::pin(fut)
+                }
+                "/hyperlane.core.interchain_security.v1.Msg/CreateRoutingIsm" => {
+                    #[allow(non_camel_case_types)]
+                    struct CreateRoutingIsmSvc<T: Msg>(pub Arc<T>);
+                    impl<T: Msg> tonic::server::UnaryService<super::MsgCreateRoutingIsm>
+                    for CreateRoutingIsmSvc<T> {
+                        type Response = super::MsgCreateRoutingIsmResponse;
+                        type Future = BoxFuture<
+                            tonic::Response<Self::Response>,
+                            tonic::Status,
+                        >;
+                        fn call(
+                            &mut self,
+                            request: tonic::Request<super::MsgCreateRoutingIsm>,
+                        ) -> Self::Future {
+                            let inner = Arc::clone(&self.0);
+                            let fut = async move {
+                                (*inner).create_routing_ism(request).await
+                            };
+                            Box::pin(fut)
+                        }
+                    }
+                    let accept_compression_encodings = self.accept_compression_encodings;
+                    let send_compression_encodings = self.send_compression_encodings;
+                    let max_decoding_message_size = self.max_decoding_message_size;
+                    let max_encoding_message_size = self.max_encoding_message_size;
+                    let inner = self.inner.clone();
+                    let fut = async move {
+                        let inner = inner.0;
+                        let method = CreateRoutingIsmSvc(inner);
+                        let codec = tonic::codec::ProstCodec::default();
+                        let mut grpc = tonic::server::Grpc::new(codec)
+                            .apply_compression_config(
+                                accept_compression_encodings,
+                                send_compression_encodings,
+                            )
+                            .apply_max_message_size_config(
+                                max_decoding_message_size,
+                                max_encoding_message_size,
+                            );
+                        let res = grpc.unary(method, req).await;
+                        Ok(res)
+                    };
+                    Box::pin(fut)
+                }
+                "/hyperlane.core.interchain_security.v1.Msg/SetRoutingIsmDomain" => {
+                    #[allow(non_camel_case_types)]
+                    struct SetRoutingIsmDomainSvc<T: Msg>(pub Arc<T>);
+                    impl<
+                        T: Msg,
+                    > tonic::server::UnaryService<super::MsgSetRoutingIsmDomain>
+                    for SetRoutingIsmDomainSvc<T> {
+                        type Response = super::MsgSetRoutingIsmDomainResponse;
+                        type Future = BoxFuture<
+                            tonic::Response<Self::Response>,
+                            tonic::Status,
+                        >;
+                        fn call(
+                            &mut self,
+                            request: tonic::Request<super::MsgSetRoutingIsmDomain>,
+                        ) -> Self::Future {
+                            let inner = Arc::clone(&self.0);
+                            let fut = async move {
+                                (*inner).set_routing_ism_domain(request).await
+                            };
+                            Box::pin(fut)
+                        }
+                    }
+                    let accept_compression_encodings = self.accept_compression_encodings;
+                    let send_compression_encodings = self.send_compression_encodings;
+                    let max_decoding_message_size = self.max_decoding_message_size;
+                    let max_encoding_message_size = self.max_encoding_message_size;
+                    let inner = self.inner.clone();
+                    let fut = async move {
+                        let inner = inner.0;
+                        let method = SetRoutingIsmDomainSvc(inner);
+                        let codec = tonic::codec::ProstCodec::default();
+                        let mut grpc = tonic::server::Grpc::new(codec)
+                            .apply_compression_config(
+                                accept_compression_encodings,
+                                send_compression_encodings,
+                            )
+                            .apply_max_message_size_config(
+                                max_decoding_message_size,
+                                max_encoding_message_size,
+                            );
+                        let res = grpc.unary(method, req).await;
+                        Ok(res)
+                    };
+                    Box::pin(fut)
+                }
+                "/hyperlane.core.interchain_security.v1.Msg/RemoveRoutingIsmDomain" => {
+                    #[allow(non_camel_case_types)]
+                    struct RemoveRoutingIsmDomainSvc<T: Msg>(pub Arc<T>);
+                    impl<
+                        T: Msg,
+                    > tonic::server::UnaryService<super::MsgRemoveRoutingIsmDomain>
+                    for RemoveRoutingIsmDomainSvc<T> {
+                        type Response = super::MsgRemoveRoutingIsmDomainResponse;
+                        type Future = BoxFuture<
+                            tonic::Response<Self::Response>,
+                            tonic::Status,
+                        >;
+                        fn call(
+                            &mut self,
+                            request: tonic::Request<super::MsgRemoveRoutingIsmDomain>,
+                        ) -> Self::Future {
+                            let inner = Arc::clone(&self.0);
+                            let fut = async move {
+                                (*inner).remove_routing_ism_domain(request).await
+                            };
+                            Box::pin(fut)
+                        }
+                    }
+                    let accept_compression_encodings = self.accept_compression_encodings;
+                    let send_compression_encodings = self.send_compression_encodings;
+                    let max_decoding_message_size = self.max_decoding_message_size;
+                    let max_encoding_message_size = self.max_encoding_message_size;
+                    let inner = self.inner.clone();
+                    let fut = async move {
+                        let inner = inner.0;
+                        let method = RemoveRoutingIsmDomainSvc(inner);
+                        let codec = tonic::codec::ProstCodec::default();
+                        let mut grpc = tonic::server::Grpc::new(codec)
+                            .apply_compression_config(
+                                accept_compression_encodings,
+                                send_compression_encodings,
+                            )
+                            .apply_max_message_size_config(
+                                max_decoding_message_size,
+                                max_encoding_message_size,
+                            );
+                        let res = grpc.unary(method, req).await;
+                        Ok(res)
+                    };
+                    Box::pin(fut)
+                }
+                "/hyperlane.core.interchain_security.v1.Msg/UpdateRoutingIsmOwner" => {
+                    #[allow(non_camel_case_types)]
+                    struct UpdateRoutingIsmOwnerSvc<T: Msg>(pub Arc<T>);
+                    impl<
+                        T: Msg,
+                    > tonic::server::UnaryService<super::MsgUpdateRoutingIsmOwner>
+                    for UpdateRoutingIsmOwnerSvc<T> {
+                        type Response = super::MsgUpdateRoutingIsmOwnerResponse;
+                        type Future = BoxFuture<
+                            tonic::Response<Self::Response>,
+                            tonic::Status,
+                        >;
+                        fn call(
+                            &mut self,
+                            request: tonic::Request<super::MsgUpdateRoutingIsmOwner>,
+                        ) -> Self::Future {
+                            let inner = Arc::clone(&self.0);
+                            let fut = async move {
+                                (*inner).update_routing_ism_owner(request).await
+                            };
+                            Box::pin(fut)
+                        }
+                    }
+                    let accept_compression_encodings = self.accept_compression_encodings;
+                    let send_compression_encodings = self.send_compression_encodings;
+                    let max_decoding_message_size = self.max_decoding_message_size;
+                    let max_encoding_message_size = self.max_encoding_message_size;
+                    let inner = self.inner.clone();
+                    let fut = async move {
+                        let inner = inner.0;
+                        let method = UpdateRoutingIsmOwnerSvc(inner);
                         let codec = tonic::codec::ProstCodec::default();
                         let mut grpc = tonic::server::Grpc::new(codec)
                             .apply_compression_config(
