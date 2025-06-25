@@ -1,6 +1,18 @@
 // @generated
 /// Kaspa transaction outpoint
 /// <https://github.com/kaspanet/rusty-kaspa/blob/1adeae8e5e2bdf7b65265420d294a356edc6d9e6/consensus/client/src/outpoint.rs#L91>
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct HlMetadata {
+    /// optional, can be empty
+    #[prost(bytes = "vec", tag = "1")]
+    pub hook_forward_to_ibc: ::prost::alloc::vec::Vec<u8>,
+    /// optional, can be empty
+    /// see
+    /// <https://www.notion.so/dymension/ADR-Kaspa-Bridge-Implementation-206a4a51f86a803980aec7099c826fb4?source=copy_link#208a4a51f86a8093a843cf4b5e903588>
+    #[prost(bytes = "vec", tag = "2")]
+    pub kaspa: ::prost::alloc::vec::Vec<u8>,
+}
+
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct TransactionOutpoint {
